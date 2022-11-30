@@ -1,0 +1,8 @@
+.border{
+    border-style: dashed;
+    border-width: 2px;
+    border-color: blue;
+    border-right-style: dotted;
+    border-left-style: double;
+
+}

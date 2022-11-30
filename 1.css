@@ -1,0 +1,13 @@
+.calss{
+    background-color: aqua;
+    font-size: 100px;
+    color: crimson;
+    text-align: center;
+    text-shadow: 100px;
+    border:solid 5px ;
+    border-style: dotted;
+    border-radius: 10px;
+    opacity: 0.7;
+    background-image:url(https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg );
+
+}

@@ -1,0 +1,8 @@
+/*The height and width properties do not include padding,
+ borders, or margins. It sets the height/width of the area inside the padding,
+  border, and margin of the element.*/
+  .margin{
+    margin: 30px;
+    margin-left: 30px;
+  }
+
