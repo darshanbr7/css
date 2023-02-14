@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Paint App</title>
+    <style>
+        h3{
+         justify-items: center;
+         text-align: center;
+         margin-top:5rem;
+        }
+        #canvas3{
+            border: 2px solid black;
+            margin-left: 25%;
+        }
+        #clear-btn{
+           position: fixed;
+           bottom:22%;
+           right: 27%;
+           font-size: medium;
+          background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <h3> Simple Paint App</h3>
+    <canvas id="canvas3" width="600" height="300"></canvas>
+    <button id="clear-btn">Clear</button>
+    <script>
+        const canvas = document.getElementById("canvas3");
+        const btn = document.getElementById('clear-btn')
+        const canvasContext = canvas.getContext("2d");
+        let startXCord = 0
+        let startYCord = 0
+        let endXCord = 0
+        let endYCord = 0
+        canvas.addEventListener('onclick',(event)=>{
+            alert("Hit")
+        });
+        canvas.addEventListener('dblclick', function(event){ 
+    
+
+       });
+
+        canvas.addEventListener('mousedown', (event) =>{
+            let cordinateX = canvas.getBoundingClientRect().left + window.scrollX
+            let cordinateY = canvas.getBoundingClientRect().top + window.scrollY
+            startXCord = event.pageX - cordinateX
+            startYCord = event.pageY - cordinateY
+        } )
+
+        canvas.addEventListener('mouseup', (event) =>{
+            let cordinateX = canvas.getBoundingClientRect().left + window.scrollX
+            let cordinateY = canvas.getBoundingClientRect().top + window.scrollY
+            endXCord = event.pageX - cordinateX
+            endYCord = event.pageY - cordinateY
+            if(startXCord !== endYCord){
+                if(startXCord > endYCord){
+                    let tempX = startXCord
+                    let tempY = startYCord
+                    startXCord = endXCord
+                    startYCord = endYCord
+                    endXCord = tempX
+                    endYCord = tempY
+                }
+                draw()
+            }
+        })
+
+        function draw(){
+            canvasContext.beginPath();
+            canvasContext.strokeStyle = "black";
+            canvasContext.fillStyle = getRandomColor();
+            canvasContext.lineWidth = 1;
+            canvasContext.moveTo(startXCord + (endXCord - startXCord)/2, startYCord);
+            canvasContext.lineTo(startXCord, endYCord);
+            canvasContext.lineTo(endXCord, endYCord);
+            canvasContext.lineTo(startXCord + (endXCord - startXCord)/2, startYCord)
+            canvasContext.stroke();
+            canvasContext.fill();
+            canvasContext.closePath();
+        }
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+        btn.addEventListener('click', (event) =>{
+            canvasContext.clearRect(0,0,canvas.width, canvas.height)
+        })
+    </script>
+</body>
+</html>

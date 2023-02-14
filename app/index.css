@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+.text{
+    justify-items: center;
+    text-align: center;
+    margin-top:5rem;
+}
+body{
+    background-color: rgb(142, 250, 142);
+}
+.drawing-board{
+    margin-top: 2%;
+    margin-left: 15%;
+    display: block;
+    position: absolute;
+    width:70%;
+    height:300px;
+    border:5px solid rgb(108, 108, 243);
+    background-color: white;
+}
+.btn{
+    position: fixed;
+    bottom:7rem;
+    right: 11.3rem;
+    font-size: medium;
+    background-color: orange;
+    
+    }
+    .btn:hover{
+        cursor: pointer;
+        background-color: rgba(0,0,2,.01);
+    }
